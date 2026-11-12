@@ -1,0 +1,331 @@
+/* =====================================================
+   CAMPUS NOTES SHARING - Style Utama
+   =====================================================
+   Palet warna:
+     Biru utama  : #2563eb
+     Biru gelap  : #1d4ed8
+     Cyan aksen  : #06b6d4
+     Biru muda   : #dbeafe  (latar hover/soft)
+     Putih       : #ffffff
+     Abu teks    : #374151
+     Abu muted   : #6b7280
+     Latar body  : #f0f6ff  (biru sangat muda)
+   ===================================================== */
+
+/* ─── IMPORT FONT ─────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ─── GLOBAL ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+    background-color: #f0f6ff;
+    color: #374151;
+    margin: 0;
+}
+
+/* Radius tombol */
+.btn { border-radius: 10px; font-weight: 600; }
+
+/* Utilitas gambar */
+.object-fit-cover { object-fit: cover; }
+
+/* Card hover naik + bayangan */
+.card {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(37,99,235,.13) !important;
+}
+
+/* Tombol utama biru-cyan gradient */
+.btn-brand {
+    background: linear-gradient(90deg, #2563eb, #06b6d4);
+    color: #fff;
+    border: none;
+}
+.btn-brand:hover {
+    background: linear-gradient(90deg, #1d4ed8, #0891b2);
+    color: #fff;
+}
+
+/* ─── LAYOUT UTAMA ──────────────────────────────────── */
+/* Wrapper seluruh halaman setelah login */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Konten utama di sebelah kanan sidebar */
+.app-content {
+    flex: 1;
+    min-width: 0;      /* supaya konten tidak overflow */
+    padding: 28px 32px;
+}
+
+/* ─── SIDEBAR ──────────────────────────────────────── */
+.sidebar {
+    width: 256px;
+    min-width: 256px;
+    min-height: 100vh;
+    background: #fff;
+    border-right: 1px solid #e5eaf5;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 20px 12px;
+    z-index: 100;
+    flex-shrink: 0;
+}
+
+/* Logo di atas sidebar */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px 20px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #2563eb;
+    text-decoration: none;
+    border-bottom: 1px solid #e5eaf5;
+    margin-bottom: 12px;
+}
+.sidebar-brand:hover { color: #1d4ed8; }
+
+/* Ikon logo biru-cyan gradient */
+.sidebar-logo-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* Profil singkat user di sidebar */
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+    border-radius: 14px;
+}
+.sidebar-user-info { flex: 1; min-width: 0; }
+.sidebar-user-name {
+    font-weight: 700;
+    font-size: 13px;
+    color: #1e40af;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sidebar-user-badge {
+    font-size: 11px;
+    color: #2563eb;
+    font-weight: 500;
+}
+
+/* Label seksi menu */
+.sidebar-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    padding: 12px 12px 4px;
+}
+
+/* Item menu */
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4b5563 !important;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 12px;
+    margin: 2px 0;
+    border-radius: 12px;
+    background: transparent !important;
+    transition: all .15s ease;
+    text-decoration: none;
+}
+.sidebar .nav-link i {
+    width: 20px;
+    font-size: 17px;
+    color: #9ca3af;
+    transition: color .15s;
+    flex-shrink: 0;
+}
+
+/* Hover */
+.sidebar .nav-link:hover {
+    background: #eff6ff !important;
+    color: #2563eb !important;
+}
+.sidebar .nav-link:hover i { color: #2563eb; }
+
+/* Aktif */
+.sidebar .nav-link.active {
+    background: linear-gradient(90deg, #2563eb, #0891b2) !important;
+    color: #fff !important;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(37,99,235,.25);
+}
+.sidebar .nav-link.active i { color: #fff !important; }
+
+/* Tombol logout */
+.sidebar-logout {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #e5eaf5;
+}
+
+/* ─── TOPBAR MOBILE ─────────────────────────────────── */
+/* Visibilitas diatur Bootstrap d-flex d-lg-none di HTML */
+.topbar {
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #fff;
+    border-bottom: 1px solid #e5eaf5;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+}
+.topbar-brand {
+    font-weight: 800;
+    color: #2563eb;
+    font-size: 15px;
+    flex: 1;
+}
+
+/* ─── BADGE REPUTASI ────────────────────────────────── */
+.badge-pemula      { background: #64748b; color: #fff; }
+.badge-kontributor { background: #2563eb; color: #fff; }
+.badge-ahli        { background: #d97706; color: #fff; }
+.badge-master      { background: #dc2626; color: #fff; }
+
+/* ─── STAT CARDS ────────────────────────────────────── */
+/* Card statistik di dashboard — solid berwarna, teks putih, kontras tinggi */
+.stat-card {
+    border-radius: 16px;
+    padding: 24px 20px;
+    color: #fff;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+.stat-card::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.1);
+}
+.stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+.stat-card .stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: .9;
+    margin-top: 4px;
+}
+
+.stat-blue   { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.stat-cyan   { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+.stat-amber  { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.stat-green  { background: linear-gradient(135deg, #10b981, #059669); }
+
+/* ─── PAGE HEADER ───────────────────────────────────── */
+/* Banner judul halaman dengan latar gradient tipis */
+.page-header {
+    background: linear-gradient(90deg, #eff6ff, #e0f2fe);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border-left: 4px solid #2563eb;
+}
+.page-header h5 {
+    margin: 0;
+    font-weight: 800;
+    color: #1e40af;
+    font-size: 1.15rem;
+}
+.page-header p {
+    margin: 4px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* ─── ADMIN SIDEBAR ─────────────────────────────────── */
+.admin-sidebar {
+    width: 256px;
+    min-width: 256px;
+    background: #0f172a;
+    min-height: 100vh;
+    padding: 20px 12px;
+}
+.admin-sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #94a3b8 !important;
+    font-weight: 500;
+    padding: 10px 12px;
+    margin: 2px 0;
+    border-radius: 12px;
+    transition: .15s;
+}
+.admin-sidebar .nav-link i { width: 20px; font-size: 17px; color: #94a3b8; }
+.admin-sidebar .nav-link:hover { background: #1e293b !important; color: #fff !important; }
+.admin-sidebar .nav-link:hover i { color: #38bdf8; }
+.admin-sidebar .nav-link.active, .admin-sidebar .nav-link.bg-primary {
+    background: linear-gradient(90deg, #2563eb, #06b6d4) !important;
+    color: #fff !important;
+    border-radius: 12px !important;
+}
+.admin-sidebar .nav-link.active i, .admin-sidebar .nav-link.bg-primary i { color: #fff !important; }
+
+/* ─── OFFCANVAS (Mobile Sidebar) ────────────────────── */
+.offcanvas .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4b5563 !important;
+    border-radius: 12px;
+    padding: 10px 12px;
+    transition: .15s;
+}
+.offcanvas .nav-link i { width: 20px; }
+.offcanvas .nav-link:hover { background: #eff6ff !important; color: #2563eb !important; }
+.offcanvas .nav-link.active {
+    background: linear-gradient(90deg, #2563eb, #06b6d4) !important;
+    color: #fff !important;
+}
+.offcanvas .nav-link.active i { color: #fff !important; }
+
+/* ─── RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .sidebar { display: none !important; }
+    .app-wrapper { display: block; }
+    .app-content { padding: 16px; }
+}
